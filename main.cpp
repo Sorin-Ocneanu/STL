@@ -28,8 +28,6 @@ int main() {
     Problem new_problem;
 
     int nrOfProblems, nrOfDoctors;
-    string name, speciality;
-
 
     ifstream inFile("input.txt");
 

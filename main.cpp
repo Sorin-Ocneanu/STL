@@ -6,56 +6,70 @@
 using namespace std;
 
 
-struct Problema{
-    string id_problem;
-    string id_specialty;
+struct Problem {
+    string typeOfIllness;
+    string medicalSpecialty;
 };
 
 
-struct Doctor{
- string name;
- string speciality;
+struct Doctor {
+    string name;
+    string medicalSpecialty;
 
 };
 
 
+int main() {
 
-int main()
-{
-    vector<Doctor> Doc;
-    vector<Problema> Pro;
+    vector<Doctor> doctor;
+    vector<Problem> problem;
+
+    Doctor new_doctor;
+    Problem new_problem;
+
+    int nrOfProblems, nrOfDoctors;
+    string name, speciality;
+
 
     ifstream inFile("input.txt");
 
-    int no_problems, no_doctors;
+    inFile >> nrOfProblems;
 
-    string name, speciality;
-    inFile >> no_problems;
 
-    for (int i = 0; i < no_problems; i++)
-    {
-        inFile >> Pro[i].id_problem;
-        inFile >> Pro[i].id_specialty;
-        cout << name << ' ' << speciality << '\n';
+    for (int i = 0; i < nrOfProblems; i++) {
+
+        inFile >> new_problem.typeOfIllness;
+        inFile >> new_problem.medicalSpecialty;
+        problem.push_back(new_problem);
+        cout << problem[i].typeOfIllness << ' ' << problem[i].medicalSpecialty << '\n';
     }
 
-    inFile >> no_doctors;
+    cout << "\n";
+    inFile >> nrOfDoctors;
 
-    for (int i = 0; i < no_doctors; i++)
-    {
-        inFile >> Doc[i].name;
-        inFile >> Doc[i].speciality;
-        cout << name << ' ' << speciality << '\n';
+    for (int i = 0; i < nrOfDoctors; i++) {
+        inFile >> new_doctor.name;
+        inFile >> new_doctor.medicalSpecialty;
+        doctor.push_back(new_doctor);
+        cout << doctor[i].name << ' ' << doctor[i].medicalSpecialty << '\n';
     }
 
-    for(int i = 0; i < no_problems; i++)
+    cout << "\n";
+
+    for (int i = 0; i < nrOfProblems; i++)
     {
-        for (int i = 0; i< no_doctors;i++)
+        for (int j = 0; j < nrOfDoctors; j++)
         {
+            if (problem[i].medicalSpecialty == doctor[j].medicalSpecialty) {
+                cout << problem[i].typeOfIllness << ' ' << "Acceptat" << '\n';
+                break;
+            }
+
+            if(j == nrOfDoctors - 1)
+                cout << problem[i].typeOfIllness << ' ' << "Respins" << '\n';
 
         }
+
     }
-
-
     return 0;
 }

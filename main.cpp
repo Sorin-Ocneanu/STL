@@ -39,17 +39,18 @@ int main() {
         inFile >> new_problem.typeOfIllness;
         inFile >> new_problem.medicalSpecialty;
         problem.push_back(new_problem);
-        cout << problem[i].typeOfIllness << ' ' << problem[i].medicalSpecialty << '\n';
+        cout << problem[i].typeOfIllness << '\t' << problem[i].medicalSpecialty << '\n';
     }
 
     cout << "\n";
     inFile >> nrOfDoctors;
 
-    for (int i = 0; i < nrOfDoctors; i++) {
+    for (int i = 0; i < nrOfDoctors; i++)
+    {
         inFile >> new_doctor.name;
         inFile >> new_doctor.medicalSpecialty;
         doctor.push_back(new_doctor);
-        cout << doctor[i].name << ' ' << doctor[i].medicalSpecialty << '\n';
+        cout << doctor[i].name << '\t' << doctor[i].medicalSpecialty << '\n';
     }
 
     cout << "\n";
@@ -59,12 +60,12 @@ int main() {
         for (int j = 0; j < nrOfDoctors; j++)
         {
             if (problem[i].medicalSpecialty == doctor[j].medicalSpecialty) {
-                cout << problem[i].typeOfIllness << ' ' << "Acceptat" << '\n';
+                cout << problem[i].typeOfIllness << '\t' << "Acceptat" << '\n';
                 break;
             }
 
             if(j == nrOfDoctors - 1)
-                cout << problem[i].typeOfIllness << ' ' << "Respins" << '\n';
+                cout << problem[i].typeOfIllness << '\t' << "Respins" << '\n';
 
         }
 

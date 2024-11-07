@@ -6,7 +6,7 @@
 using namespace std;
 
 
-struct Problem {
+struct Problem{
     string typeOfIllness;
     string medicalSpecialty;
 };
@@ -15,11 +15,11 @@ struct Problem {
 struct Doctor {
     string name;
     string medicalSpecialty;
-
 };
 
 
-int main() {
+int main()
+{
 
     vector<Doctor> doctor;
     vector<Problem> problem;
@@ -34,7 +34,8 @@ int main() {
     inFile >> nrOfProblems;
 
 
-    for (int i = 0; i < nrOfProblems; i++) {
+    for (int i = 0; i < nrOfProblems; i++)
+    {
 
         inFile >> new_problem.typeOfIllness;
         inFile >> new_problem.medicalSpecialty;
@@ -65,10 +66,10 @@ int main() {
             }
 
             if(j == nrOfDoctors - 1)
+            {
                 cout << problem[i].typeOfIllness << '\t' << "Respins" << '\n';
-
+            }
         }
-
     }
     return 0;
 }
